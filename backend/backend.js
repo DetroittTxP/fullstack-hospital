@@ -122,6 +122,7 @@ app.post('/login',(req,res) => {
 app.post('/verify',(req,res) => {
     try{
         let token = req.headers.authorization.split(' ')[1]
+        console.log(token);
      
         let verifed = jwt.verify(token,secret)
         res.send({status:"verified",token:verifed})

@@ -12,7 +12,7 @@ const Login:React.FC = () => {
         password:'',
     })
 
-    const [Islogin,SetIslogin] = useState();
+    const [Islogin,SetIslogin] = useState({status:'',token:''});
 
 
     const OnInputUser=(e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -29,15 +29,14 @@ const Login:React.FC = () => {
         await axios.post('http://localhost:5555/login',{users}) // gettoken
         .then(res => {
             SetIslogin(res.data)  
-            alert(res.data.token)      
         })
         .catch(err=>{
             alert(err)
         })
 
-        await axios.post('http://localhost:5555/verify',{Islogin}) // verfiy token
+        axios.post('http://localhost:5555/verify',null,{headers: { authorization: `Bearer ${Islogin.token}` }}) // verfiy token
         .then(res => {
-            let verified = res.data;
+            console.log(res.data)
 
         })
         .catch(err => {

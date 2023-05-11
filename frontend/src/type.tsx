@@ -14,5 +14,11 @@ export interface patient{
      id_card:string
 }
 
+export interface logindata{
+    
+}
 
+export interface tokendata{
+
+}
 

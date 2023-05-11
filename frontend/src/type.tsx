@@ -1,4 +1,4 @@
-export interface member {
+export interface Member {
     username:string,
     password:string,
     email:string,
@@ -14,11 +14,13 @@ export interface patient{
      id_card:string
 }
 
-export interface logindata{
-    
+export interface Logindata{
+    username:string,
+    password:string
 }
 
 export interface tokendata{
-
+    status:string,
+    token:string
 }
 

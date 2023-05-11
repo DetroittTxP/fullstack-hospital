@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,32 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+#button{
+  margin-right: 805px;
+  background-color: white;
+  color: black;
+}
+
+
+
+.component{
+  text-align: center;
+}
+
+.form{
+  padding: 40px;
+  background-color: #147a94;
+  color:white;
+}
+
+
+
+.login{
+  margin-top: 50px;
+}
+
+.form-input{
+  margin-left: 45%;
 }

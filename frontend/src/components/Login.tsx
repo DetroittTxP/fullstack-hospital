@@ -1,14 +1,19 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap'
-
+import axios  from 'axios';
 import {Logindata} from '../type'
+import { useNavigate }  from 'react-router-dom'
 
 const Login:React.FC = () => {
 
+    const navigate = useNavigate();
     const [users,Setusers] = useState<Logindata>({
         username:'',
         password:'',
     })
+
+    const [Islogin,SetIslogin] = useState();
+
 
     const OnInputUser=(e:React.ChangeEvent<HTMLInputElement>)=>{
         Setusers( prev => {
@@ -19,6 +24,27 @@ const Login:React.FC = () => {
         })
     }
 
+    const OnSubmitLogin= async (e:React.ChangeEvent<HTMLFormElement>)=>{
+        e.preventDefault();
+        await axios.post('http://localhost:5555/login',{users}) // gettoken
+        .then(res => {
+            SetIslogin(res.data)  
+            alert(res.data.token)      
+        })
+        .catch(err=>{
+            alert(err)
+        })
+
+        await axios.post('http://localhost:5555/verify',{Islogin}) // verfiy token
+        .then(res => {
+            let verified = res.data;
+
+        })
+        .catch(err => {
+            alert(err)
+        })
+    }
+
     return (
         <div >
             <div className='form'>
@@ -26,7 +52,7 @@ const Login:React.FC = () => {
                      <h2>Please Login</h2>  
                 </div>
                 <br/>
-                <Form className='form-input'>
+                <Form onSubmit={OnSubmitLogin} className='form-input'>
                     <Form.Group controlId='username'>
                           <Form.Label style={{marginRight:1000}}>Username</Form.Label>
                           <Form.Control onChange={OnInputUser}  style={{width:200}}/>

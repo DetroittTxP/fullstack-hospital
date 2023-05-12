@@ -82,4 +82,5 @@ const Login:React.FC<LoginProps> = ({getLoginData}) => {
     )
 }
 
+
 export default Login;

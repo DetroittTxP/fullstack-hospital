@@ -9,8 +9,8 @@ import Queue from './Queue';
 
 import axios from 'axios';
 
-export const Main: React.FC<MainPageProps> = ({VerifiedUsername}) => {
-    const [logged,Setlogged] = useState([]);
+export const Main: React.FC = () => {
+  
     
     
  
@@ -25,14 +25,14 @@ export const Main: React.FC<MainPageProps> = ({VerifiedUsername}) => {
                         className="d-inline-block align-top"
                     />
                     {' '}
-                    Welcome 
+                    Welcome {localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')}
                 </Navbar.Brand>
                 <Nav className='me-auto'>
                     <Nav.Link>Home</Nav.Link>
                     <Nav.Link onClick={() => alert('im gere')} >Booking</Nav.Link>
 
                 </Nav>
-                <Nav.Link href='/' style={{ textAlign: 'end' }}>Logout</Nav.Link>
+                <Nav.Link href='/' onClick={()=>localStorage.removeItem('username')} style={{ textAlign: 'end' }}>Logout</Nav.Link>
 
             </Navbar>
 

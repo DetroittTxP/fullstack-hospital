@@ -47,6 +47,7 @@ const Login:React.FC<LoginProps> = ({getLoginData}) => {
             else{
                 
                 getLoginData(res.data.token.username)
+                localStorage.setItem('username',JSON.stringify(res.data.token.username))
                 navigate('/main')
             }
         }) 

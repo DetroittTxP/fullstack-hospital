@@ -12,7 +12,7 @@ import axios from 'axios';
 export const Main: React.FC<MainPageProps> = ({VerifiedUsername}) => {
     const [logged,Setlogged] = useState([]);
     
-
+    
  
     return (
         <div>

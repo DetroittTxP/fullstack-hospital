@@ -45,13 +45,14 @@ const Login:React.FC<LoginProps> = ({getLoginData}) => {
                 alert('login failed')
             }
             else{
-                alert('login success');
+                
                 getLoginData(res.data.token.username)
                 navigate('/main')
             }
-        })
-        
+        }) 
     }
+
+    
 
     return (
         <div >
@@ -68,7 +69,7 @@ const Login:React.FC<LoginProps> = ({getLoginData}) => {
                     <br/>
                     <Form.Group controlId='password'>
                           <Form.Label style={{marginRight:1000}}>Password</Form.Label>
-                          <Form.Control onChange={OnInputUser}   style={{width:200}}/>
+                          <Form.Control type='password' onChange={OnInputUser}   style={{width:200}}/>
                     </Form.Group>
                     <br/>
                     <Button type='submit' id='button'>Login</Button>

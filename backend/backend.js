@@ -6,11 +6,16 @@ const jwt = require('jsonwebtoken')
 const cors = require('cors');
 const salt = 10;
 const secret  = "HEHE_SECRET_KEY_HEHE"
-
+const swaggerUI = require('swagger-ui-express');
+const swaggerData = require('./swaggerDOCS.json')
 require('dotenv').config();
+
+
+
 
 const app = express();
 
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerData));
 app.use(cors());
 app.use(bodyparser.json());
 
@@ -123,7 +128,7 @@ app.post('/login',(req,res) => {
 app.post('/verify',(req,res) => {
     try{
         let token = req.headers.authorization.split(' ')[1]
-        console.log(token);
+        
      
         let verifed = jwt.verify(token,secret)
         res.send({status:"verified",token:verifed})
@@ -131,6 +136,16 @@ app.post('/verify',(req,res) => {
     }catch(err){
         res.send({status:"not verfied",err:err})
     }
+})
+
+
+app.post('/getloggedinfo',(req,res) => {
+    const {VerifiedUsername} = req.body
+    console.log(VerifiedUsername);
+    // db.query(
+    //     'SELECR * FROM member WHERE username = ?',
+        
+    // )
 })
 
 app.listen('5555',() => {

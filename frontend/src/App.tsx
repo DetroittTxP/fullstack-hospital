@@ -14,7 +14,7 @@ function App() {
   return (
     <div className='component'>
           <Routes>
-               <Route path='/' element={<Login getLoginData={getLoginData}/>}/>
+               <Route path='/'  element={<Login getLoginData={getLoginData}/>}/>
                <Route path='/register' element={<Register/>}/>
                <Route path='/main' element={<Main VerifiedUsername={loggedINdata}/>}/>
           </Routes>

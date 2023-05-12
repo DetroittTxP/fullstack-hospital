@@ -23,6 +23,7 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
     if(err) console.log(err);
+    console.log(`Connected tot ${process.env.DB} database`);
 })
 
 app.get('/', (req,res) => {
@@ -69,7 +70,7 @@ const CheckEmail= (username) =>{
 }
 
 app.post('/login',(req,res) => {
-    const { username,password } = req.body.users;
+    const { username,password } = req.body.users
 
     let isEmail = CheckEmail(username);
 
@@ -102,7 +103,7 @@ app.post('/login',(req,res) => {
             }
 
             if(results.length === 0 ){
-                res.send({status:"incorrect username or password"});return;
+                res.send({status:"incorrect username or password !"});return;
             }
 
             bcrypt.compare(password,results[0].password,(err,isLogin) => {

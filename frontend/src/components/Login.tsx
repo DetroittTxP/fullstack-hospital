@@ -2,18 +2,16 @@ import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap'
 import axios  from 'axios';
 import {Logindata} from '../type'
-import { useNavigate }  from 'react-router-dom'
+import {  useNavigate }  from 'react-router-dom'
+import { LoginProps } from '../type';
 
-const Login:React.FC = () => {
+const Login:React.FC<LoginProps> = ({getLoginData}) => {
 
     const navigate = useNavigate();
     const [users,Setusers] = useState<Logindata>({
         username:'',
         password:'',
     })
-
-    const [Islogin,SetIslogin] = useState({status:'',token:''});
-
 
     const OnInputUser=(e:React.ChangeEvent<HTMLInputElement>)=>{
         Setusers( prev => {
@@ -28,20 +26,31 @@ const Login:React.FC = () => {
         e.preventDefault();
         await axios.post('http://localhost:5555/login',{users}) // gettoken
         .then(res => {
-            SetIslogin(res.data)  
+            Verify(res.data.token)  
+            
+            
         })
         .catch(err=>{
             alert(err)
         })
+    }
 
-        axios.post('http://localhost:5555/verify',null,{headers: { authorization: `Bearer ${Islogin.token}` }}) // verfiy token
+    const Verify = async (token:String) => {
+        console.log('token from Verfy',token);
+        await axios.post('http://localhost:5555/verify',null,{headers: { authorization: `Bearer ${token}` }})
         .then(res => {
-            console.log(res.data)
+            console.log(res.data);
 
+            if(res.data.status !== 'verified'){
+                alert('login failed')
+            }
+            else{
+                alert('login success');
+                getLoginData(res.data.token.username)
+                navigate('/main')
+            }
         })
-        .catch(err => {
-            alert(err)
-        })
+        
     }
 
     return (

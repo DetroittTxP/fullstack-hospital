@@ -19,6 +19,14 @@ export interface Logindata{
     password:string
 }
 
+export interface LoginProps{
+    getLoginData:(loggedinData:string) => void
+}
+
+export interface MainPageProps{
+    VerifiedUsername:String
+}
+
 export interface tokendata{
     status:string,
     token:string

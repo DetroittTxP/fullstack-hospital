@@ -3,8 +3,8 @@ import React from 'react';
 
 const Queue:React.FC=()=>{
     return(
-        <div>
-            
+        <div className='sub-component'> 
+            <h2>HEHE</h2>
         </div>
     )
 }

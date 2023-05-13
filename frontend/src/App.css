@@ -5,7 +5,6 @@
   text-align: center;
 }
 
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,11 +41,6 @@
   color: #888;
 } */
 
-
-.main-welcome{
-    margin-top: 330px;
-}
-
 #button{
   margin-right: 805px;
   background-color: white;
@@ -75,6 +69,6 @@
   margin-left: 45%;
 }
 
-.content{
-
+.sub-component{
+  background-color: #147a94;
 }

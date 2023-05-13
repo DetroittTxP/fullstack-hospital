@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import { Main } from './components/MainPage'
 import {Routes,Route} from 'react-router-dom'
+import Queue from './components/Queue'
 
 function App() {
   const [loggedINdata,SetloginData] = useState('')
@@ -17,7 +18,10 @@ function App() {
                <Route path='/'  element={<Login getLoginData={getLoginData}/>}/>
                <Route path='/register' element={<Register/>}/>
                <Route path='/main' element={<Main/>}/>
+               <Route path='/queue' element={<Queue/>}/>
           </Routes>
+
+       
     </div>
   )
 }

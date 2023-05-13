@@ -65,12 +65,12 @@ const Login:React.FC<LoginProps> = ({getLoginData}) => {
                 <Form onSubmit={OnSubmitLogin} className='form-input'>
                     <Form.Group controlId='username'>
                           <Form.Label style={{marginRight:1000}}>Username</Form.Label>
-                          <Form.Control onChange={OnInputUser}  style={{width:200}}/>
+                          <Form.Control required onChange={OnInputUser}  style={{width:200}}/>
                     </Form.Group>
                     <br/>
                     <Form.Group controlId='password'>
                           <Form.Label style={{marginRight:1000}}>Password</Form.Label>
-                          <Form.Control type='password' onChange={OnInputUser}   style={{width:200}}/>
+                          <Form.Control required  type='password' onChange={OnInputUser}   style={{width:200}}/>
                     </Form.Group>
                     <br/>
                     <Button type='submit' id='button'>Login</Button>

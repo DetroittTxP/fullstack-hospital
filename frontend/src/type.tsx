@@ -5,14 +5,25 @@ export interface Member {
     tel:string,
 }
 
-export interface patient{
+export interface Patient{
      name:string,
      age:string,
      gender:string,
-     tel:string,
      address:string,
-     id_card:string
+     tel:string
+     id_card:string,
 }
+
+export interface QueuePatient{
+    name:string,
+    age:string,
+    gender:string,
+    date:string,
+    address:string,
+    id_card:string,
+}
+
+
 
 export interface Logindata{
     username:string,

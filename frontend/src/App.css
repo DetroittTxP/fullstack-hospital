@@ -70,5 +70,12 @@
 }
 
 .sub-component{
+
   background-color: #147a94;
+  color: white;
+}
+
+.queue-form{
+  display: flex;
+  justify-content: center;
 }

@@ -53,8 +53,6 @@ const Login:React.FC<LoginProps> = ({getLoginData}) => {
         }) 
     }
 
-    
-
     return (
         <div >
             <div className='form'>

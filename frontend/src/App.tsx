@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
-import { Main } from './components/MainPage'
 import { Routes, Route, useNavigate,useLocation } from 'react-router-dom'
 import Queue from './components/Queue'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import PatientData from './components/PatientData'
 
 function App() {
   const [loggedINdata, SetloginData] = useState('')
@@ -20,7 +20,6 @@ function App() {
   }, [])
 
   const getLoginData = (logindata: string) => SetloginData(logindata)
-  console.log(loggedINdata, 'from app');
 
   return (
     <div className='component'>
@@ -37,9 +36,9 @@ function App() {
           Welcome {localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')}
         </Navbar.Brand>
         <Nav className='me-auto'>
-          <Nav.Link>Home</Nav.Link>
-          <Nav.Link onClick={() => navigate('/queue')} >Booking</Nav.Link>
-
+          <Nav.Link onClick={() => navigate('/main')}>Home</Nav.Link>
+          <Nav.Link onClick={() => navigate('/queue')} >จองคิวตรวจ</Nav.Link>
+          <Nav.Link onClick={() => navigate('/patientData')} >ข้อมูลผู้ป่วย</Nav.Link>
         </Nav>
         <Nav.Link href='/' onClick={() => localStorage.removeItem('username')} style={{ textAlign: 'end' }}>Logout</Nav.Link>
 
@@ -48,9 +47,9 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login getLoginData={getLoginData} />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/main' element={<Main />} />
         <Route path='/queue' element={<Queue />} />
-
+        <Route path='/patientData' element={<PatientData/>} />
+    
       </Routes>
 
 

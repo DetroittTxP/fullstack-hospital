@@ -138,16 +138,6 @@ app.post('/verify',(req,res) => {
     }
 })
 
-
-app.post('/getloggedinfo',(req,res) => {
-    const {VerifiedUsername} = req.body
-    console.log(VerifiedUsername);
-    // db.query(
-    //     'SELECR * FROM member WHERE username = ?',
-        
-    // )
-})
-
 app.post('/insertqueuedata',(req,res) => {
     const {name,age,gender,date,address,id_card} = req.body
 

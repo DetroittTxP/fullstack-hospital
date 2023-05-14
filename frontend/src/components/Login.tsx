@@ -3,9 +3,8 @@ import {Form,Button} from 'react-bootstrap'
 import axios  from 'axios';
 import {Logindata} from '../type'
 import {  useNavigate }  from 'react-router-dom'
-import { LoginProps } from '../type';
 
-const Login:React.FC<LoginProps> = ({getLoginData}) => {
+const Login:React.FC= () => {
 
     const navigate = useNavigate();
     const [users,Setusers] = useState<Logindata>({
@@ -46,7 +45,6 @@ const Login:React.FC<LoginProps> = ({getLoginData}) => {
             }
             else{
                 
-                getLoginData(res.data.token.username)
                 localStorage.setItem('username',JSON.stringify(res.data.token.username))
                 navigate('/main')
             }

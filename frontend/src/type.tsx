@@ -23,15 +23,9 @@ export interface QueuePatient{
     id_card:string,
 }
 
-
-
 export interface Logindata{
     username:string,
     password:string
-}
-
-export interface LoginProps{
-    getLoginData:(loggedinData:string) => void
 }
 
 export interface MainPageProps{

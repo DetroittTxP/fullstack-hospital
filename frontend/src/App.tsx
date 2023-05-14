@@ -17,15 +17,7 @@ function App() {
       navigate('/login')
     }
 
-    const handleBeforeUnload = () => {
-      localStorage.removeItem('username');
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
+  
   }, [])
 
 
@@ -49,8 +41,10 @@ function App() {
           <Nav.Link onClick={() => navigate('/queue')} >จองคิวตรวจ</Nav.Link>
           <Nav.Link onClick={() => navigate('/patientData')} >ข้อมูลคิวตรวจผู้ป่วย</Nav.Link>
         </Nav>
+        <Nav.Link style={{marginRight:20}}>เเก้ไขข้อมูลผู้ใช้</Nav.Link>
         <Nav.Link href='/' onClick={() => localStorage.removeItem('username')} style={{ textAlign: 'end' }}>Logout</Nav.Link>
-
+        
+     
       </Navbar>}
 
       <Routes>

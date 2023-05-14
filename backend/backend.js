@@ -148,6 +148,15 @@ app.post('/getloggedinfo',(req,res) => {
     // )
 })
 
+app.post('/insertqueuedata',(req,res) => {
+    const {name,age,gender,date,address,id_card} = req.body
+
+    console.log(req.body);
+
+})
+
+
+
 app.listen('5555',() => {
     console.log('SERVER RUN ON PORT 5555');
 })

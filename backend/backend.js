@@ -169,6 +169,17 @@ app.post('/insertqueuedata',(req,res) => {
 
 })
 
+app.get('/getqueuedata',(req,res) => {
+    db.query(
+        'SELECT * FROM queue',
+        (err,results,fields)=>{
+            if(err)console.log(results);
+
+            res.json(results)
+        }
+    )
+})
+
 
 
 app.listen('5555',() => {

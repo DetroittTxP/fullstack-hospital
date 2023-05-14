@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "06333c3d-1d70-48f7-a790-1c036ead2f07",
+		"name": "fullstack-hospital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testapi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5555",
+					"host": [
+						"localhost"
+					],
+					"port": "5555"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertpatientdata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":55764,\r\n    \"name\":\"Parame\",\r\n    \"age\":\"26\",\r\n    \"gender\":\"male\",\r\n    \"tel\":\"087-6678751\",\r\n    \"address\":\"117/8 mu 7\",\r\n    \"id_card\":\"1234567890123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5555/InsertPatientData",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"InsertPatientData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertmemberdata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"DetroittTxP\",\r\n    \"password\":\"123456\",\r\n    \"email\":\"pondkab582@gmail.com\",\r\n    \"tel\":\"087-6678751\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5555/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Beampim\",\r\n    \"password\":\"12345678910\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5555/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verifytoken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5555/verify",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insertqueuedata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5555/insertqueuedata",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"insertqueuedata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getqueuedata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5555/getqueuedata",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"getqueuedata"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

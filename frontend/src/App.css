@@ -79,3 +79,17 @@
   display: flex;
   justify-content: center;
 }
+
+.table-patient{
+  background-color: #147a94;
+}
+
+.table-patient{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.table{
+  margin-top: 50px;
+}

@@ -151,7 +151,21 @@ app.post('/getloggedinfo',(req,res) => {
 app.post('/insertqueuedata',(req,res) => {
     const {name,age,gender,date,address,id_card} = req.body
 
-    console.log(req.body);
+    db.query(
+        'INSERT INTO queue (name,age,gender,address,date,id_card) VALUES (?,?,?,?,?,?)',
+        [name,age,gender,address,date,id_card],
+        (err,results,fields) =>{
+            if(err){
+                console.log(err);
+            }
+
+            res.send({
+                status:'เพิ่มข้อมูลการจองคิวเรียบร้อยเเล้ว',
+                result:results
+            })
+
+        }
+    )
 
 })
 

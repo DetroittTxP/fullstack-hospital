@@ -8,9 +8,10 @@ function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
-    if (localStorage.getItem('username') === null) {
+    if (localStorage.getItem('username') === null && location.pathname !== '/register') {
       navigate('/login')
     }
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <div className='component'>
 
-      {location.pathname !== '/login' && <Navbar bg='light' expand='lg' style={{ padding: 30, }}>
+      {path !== '/login' && path !== '/register' && <Navbar bg='light' expand='lg' style={{ padding: 30, }}>
         <Navbar.Brand >
           <img alt=''
             src='https://cdn-icons-png.flaticon.com/512/4320/4320350.png'

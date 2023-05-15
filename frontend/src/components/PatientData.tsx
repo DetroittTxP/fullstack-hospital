@@ -41,6 +41,7 @@ const PatientData:React.FC = ()=>{
        <div className='table-patient'>
            {<Table className='table' style={{width:1450,backgroundColor:'white',borderRadius:5}}>
                 <thead>
+                      <th>ชื่อผู้ใช้</th>
                       <th>ชื่อผู้ป่วย</th>
                       <th>อายุ</th>
                       <th>เพศ</th>
@@ -55,6 +56,7 @@ const PatientData:React.FC = ()=>{
                     {PatientData.map((value,index)=> {
                         return(
                             <tr key={index}>
+                                <td>{LoggedInUsername}</td>
                                 <td>{value.name}</td>
                                 <td>{value.age}</td>
                                 <td>{value.gender}</td>

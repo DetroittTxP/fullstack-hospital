@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Queue: React.FC = () => {
     const [patientdata, Setpatientdata] = useState<QueuePatient>({
+        id:0,
         name: '',
         age: '',
         gender: '',

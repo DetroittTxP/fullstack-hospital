@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const PatientData:React.FC = ()=>{
 
+    const LoggedInUsername = localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')
 
     const [PatientData,SetPatientData] = useState<QueuePatient[]>([{
         name:'',
@@ -16,15 +17,13 @@ const PatientData:React.FC = ()=>{
         address:'',
         id_card:'',
         date:'',
-        creator:localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')
+        creator:localStorage.LoggedInUsername
     }]);
 
     const navigate = useNavigate();
 
-    
-
     useEffect(() => {
-        axios.get('http://localhost:5555/getqueuedata')
+        axios.get(`http://localhost:5555/getqueuedata?LoggedInUsername=${LoggedInUsername}`)
         .then(res => {
             SetPatientData(res.data)
         })
@@ -34,7 +33,7 @@ const PatientData:React.FC = ()=>{
 
     return(
        <div className='table-patient'>
-           <Table className='table' style={{width:1450,backgroundColor:'white',borderRadius:5}}>
+           {<Table className='table' style={{width:1450,backgroundColor:'white',borderRadius:5}}>
                 <thead>
                       <th>ชื่อผู้ป่วย</th>
                       <th>อายุ</th>
@@ -62,7 +61,7 @@ const PatientData:React.FC = ()=>{
                         )
                     })}
                 </tbody>
-           </Table>
+           </Table>}
        </div>
     )
 }

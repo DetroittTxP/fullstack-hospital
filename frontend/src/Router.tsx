@@ -8,13 +8,17 @@ import Login from './components/Login'
 import Register from './components/Register'
 
 export const Router:React.FC = () =>{
+
+
+
+
     return(
         <Routes>
-        <Route path='/login' element={<Login/>} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/queue' element={<Queue />} />
-        <Route path='/patientData' element={<PatientData />} />
-        <Route path='/receipt' element={<QueueRecceipt/>}/>
+          <Route path='/login' element={<Login/>} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/queue' element={<Queue />} />
+          <Route path='/patientData' element={<PatientData />} />
+          <Route path='/receipt' element={<QueueRecceipt/>}/>
 
       </Routes>
     )

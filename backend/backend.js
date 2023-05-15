@@ -139,11 +139,11 @@ app.post('/verify',(req,res) => {
 })
 
 app.post('/insertqueuedata',(req,res) => {
-    const {name,age,gender,date,address,id_card} = req.body
+    const {name,age,gender,date,address,id_card,creator} = req.body
 
     db.query(
-        'INSERT INTO queue (name,age,gender,address,date,id_card) VALUES (?,?,?,?,?,?)',
-        [name,age,gender,address,date,id_card],
+        'INSERT INTO queue (name,age,gender,address,date,id_card,creator) VALUES (?,?,?,?,?,?,?)',
+        [name,age,gender,address,date,id_card,creator],
         (err,results,fields) =>{
             if(err){
                 console.log(err);
@@ -159,9 +159,11 @@ app.post('/insertqueuedata',(req,res) => {
 
 })
 
-app.get('/getqueuedata',(req,res) => {
+app.get('/getqueuedata',(req,res) => { 
+
     db.query(
-        'SELECT * FROM queue ORDER BY date ASC',
+        `SELECT * FROM queue WHERE creator = ? ORDER BY date ASC`,
+        [req.query.LoggedInUsername],
         (err,results,fields)=>{
             if(err)console.log(results);
 

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, {  useEffect } from 'react'
 import './App.css'
-import Login from './components/Login'
-import Register from './components/Register'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
-import Queue from './components/Queue'
+
+import {  useNavigate, useLocation } from 'react-router-dom'
+
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import PatientData from './components/PatientData'
+
+import { Router } from './Router'
 
 function App() {
 
@@ -46,13 +46,7 @@ function App() {
      
       </Navbar>}
 
-      <Routes>
-        <Route path='/login' element={<Login/>} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/queue' element={<Queue />} />
-        <Route path='/patientData' element={<PatientData />} />
-
-      </Routes>
+      <Router/>
 
 
     </div>

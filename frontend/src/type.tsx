@@ -21,6 +21,7 @@ export interface QueuePatient{
     date:any,
     address:string,
     id_card:string,
+    creator:string | undefined
 }
 
 export interface Logindata{

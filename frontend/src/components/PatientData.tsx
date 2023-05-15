@@ -2,9 +2,9 @@
 
 import React,{ useEffect, useState } from 'react';
 import axios from 'axios';
-import { Table} from 'react-bootstrap';
+import { Table,Button } from 'react-bootstrap';
 import { QueuePatient } from '../type';
-
+import { useNavigate } from 'react-router-dom';
 
 const PatientData:React.FC = ()=>{
 
@@ -17,6 +17,8 @@ const PatientData:React.FC = ()=>{
         id_card:'',
         date:''
     }]);
+
+    const navigate = useNavigate();
 
     
 
@@ -39,6 +41,8 @@ const PatientData:React.FC = ()=>{
                       <th>ที่อยู่</th>
                       <th>รหัสประจำตัว</th>
                       <th>วันที่จองเข้าตรวจ</th>
+                      <th>result</th>
+                      <th>ยืนยัน</th>
                 </thead>
 
                 <tbody>
@@ -51,6 +55,8 @@ const PatientData:React.FC = ()=>{
                                 <td>{value.address}</td>
                                 <td>{value.id_card}</td>
                                 <td>{value.date}</td>
+                                <td><Button onClick={()=>navigate('/receipt')}>ดูข้อมูลการจอง</Button></td>
+                                <td><Button className='btn btn-danger'>กดเมื่อสำเร็จเเล้ว</Button></td>
                             </tr>
                         )
                     })}

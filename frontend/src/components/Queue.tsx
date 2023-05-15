@@ -11,6 +11,7 @@ const Queue: React.FC = () => {
         date: '',
         address: '',
         id_card: '',
+        creator:localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')
     })
 
     const Oninputdata = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,6 +88,8 @@ const Queue: React.FC = () => {
                         <Form.Label style={{ marginRight: 50 }}>เลขประจำตัวประชาชน</Form.Label>
                         <Form.Control onChange={Oninputdata} type='text' style={{ width: 200 }} />
                     </Form.Group>
+
+                   
                     <br />
                     <Button type='submit' style={{ backgroundColor: 'white', color: 'black' }}>จองคิว</Button>
                 </Form>

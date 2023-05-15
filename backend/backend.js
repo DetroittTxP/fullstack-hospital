@@ -166,7 +166,6 @@ app.get('/getqueuedata',(req,res) => {
         [req.query.LoggedInUsername],
         (err,results,fields)=>{
             if(err)console.log(results);
-
             res.json(results)
         }
     )

@@ -17,6 +17,7 @@ export interface Patient{
 }
 
 export interface QueuePatient{
+    id:number
     name:string,
     age:string,
     gender:string,

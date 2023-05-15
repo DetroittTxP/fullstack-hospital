@@ -11,13 +11,14 @@ const PatientData:React.FC = ()=>{
     const LoggedInUsername = localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')
 
     const [PatientData,SetPatientData] = useState<QueuePatient[]>([{
+        id:0,
         name:'',
         age:'',
         gender:'',
         address:'',
         id_card:'',
         date:'',
-        creator:localStorage.LoggedInUsername
+        creator:LoggedInUsername
     }]);
 
     const navigate = useNavigate();
@@ -30,6 +31,11 @@ const PatientData:React.FC = ()=>{
         .catch(err=> alert(err))          
 
     },[])
+
+    const onDelete = (id:number) =>{
+        const Deleted = PatientData.filter(e => e.id !== id)
+        SetPatientData(Deleted)
+    }
 
     return(
        <div className='table-patient'>
@@ -56,7 +62,7 @@ const PatientData:React.FC = ()=>{
                                 <td>{value.id_card}</td>
                                 <td>{value.date}</td>
                                 <td><Button onClick={()=>navigate('/receipt')}>ดูข้อมูลการจอง</Button></td>
-                                <td><Button className='btn btn-danger'>กดเมื่อสำเร็จเเล้ว</Button></td>
+                                <td><Button className='btn btn-danger' onClick={()=>onDelete(value.id)}>กดเมื่อสำเร็จเเล้ว</Button></td>
                             </tr>
                         )
                     })}

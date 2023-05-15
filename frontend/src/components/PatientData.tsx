@@ -8,7 +8,14 @@ import { Table} from 'react-bootstrap';
 const PatientData:React.FC = ()=>{
 
 
-    const [PatientData,SetPatientData] = useState([]);
+    const [PatientData,SetPatientData] = useState([{
+        name:'',
+        age:'',
+        gender:'',
+        address:'',
+        id_card:'',
+        date:''
+    }]);
 
     
     useEffect(() => {
@@ -34,9 +41,18 @@ const PatientData:React.FC = ()=>{
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                    </tr>
+                    {PatientData.map((value,index)=> {
+                        return(
+                            <tr>
+                                <td>{value.name}</td>
+                                <td>{value.age}</td>
+                                <td>{value.gender}</td>
+                                <td>{value.address}</td>
+                                <td>{value.id_card}</td>
+                                <td>{value.date}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
            </Table>
        </div>

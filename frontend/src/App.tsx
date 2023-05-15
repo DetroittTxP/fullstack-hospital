@@ -17,7 +17,6 @@ function App() {
       navigate('/login')
     }
 
-  
   }, [])
 
 

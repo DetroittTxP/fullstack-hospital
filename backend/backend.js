@@ -161,7 +161,7 @@ app.post('/insertqueuedata',(req,res) => {
 
 app.get('/getqueuedata',(req,res) => {
     db.query(
-        'SELECT * FROM queue',
+        'SELECT * FROM queue ORDER BY date ASC',
         (err,results,fields)=>{
             if(err)console.log(results);
 

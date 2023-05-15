@@ -15,7 +15,8 @@ const PatientData:React.FC = ()=>{
         gender:'',
         address:'',
         id_card:'',
-        date:''
+        date:'',
+        creator:localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')
     }]);
 
     const navigate = useNavigate();

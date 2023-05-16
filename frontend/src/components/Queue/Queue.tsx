@@ -36,7 +36,6 @@ const Queue: React.FC = () => {
 
     const onSubmitPatientData = async (e:React.ChangeEvent<HTMLFormElement>) =>{
         e.preventDefault();
-
         await axios.post('http://localhost:5555/insertqueuedata',patientdata)
         .then(res => {
             alert('บันทึกข้อมูลเรียบร้อยเเล้ว')

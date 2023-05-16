@@ -4,8 +4,8 @@ const bodyparser = require('body-parser')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const cors = require('cors');
-const salt = 10;
-const secret  = "HEHE_SECRET_KEY_HEHE"
+const salt = process.env.salt
+const secret  = process.env.secret
 const swaggerUI = require('swagger-ui-express');
 const swaggerData = require('./swaggerDOCS.json')
 require('dotenv').config();
@@ -171,8 +171,6 @@ app.get('/getqueuedata',(req,res) => {
     )
 })
 
-
-
-app.listen('5555',() => {
+app.listen(process.env.PORT,() => {
     console.log('SERVER RUN ON PORT 5555');
 })

@@ -27,6 +27,19 @@ export interface QueuePatient{
     creator:string | undefined
 }
 
+export interface CallqueueProps{
+    queuedata:{
+        id:number
+        name:string,
+        age:string,
+        gender:string,
+        date:any,
+        address:string,
+        id_card:string,
+        creator:string | undefined
+    }[],
+}
+
 export interface Logindata{
     username:string,
     password:string

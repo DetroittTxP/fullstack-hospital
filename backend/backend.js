@@ -50,19 +50,19 @@ app.post('/InsertPatientData',(req,res) => {
 
 app.post('/register',(req,res) => {
     const { username,password,email,tel } = req.body;
-
-    bcrypt.hash(password,salt,(err,hash) => {
-        db.query(
-            'INSERT INTO member (username,password,email,tel) VALUES (?,?,?,?)',
-            [username,hash,email,tel],
-            (err,results,fields) => {
-                if(err){
-                    console.log(err);
-                }
-                res.send({status:'INSERT MEMBER DATA SUCCESSFULLY',data:results})
-            }
-        )
-    })
+    console.log(username,password,email,tel);
+    // bcrypt.hash(password,salt,(err,hash) => {
+    //     db.query(
+    //         'INSERT INTO member (username,password,email,tel) VALUES (?,?,?,?)',
+    //         [username,hash,email,tel],
+    //         (err,results,fields) => {
+    //             if(err){
+    //                 console.log(err);
+    //             }
+    //             res.send({status:'INSERT MEMBER DATA SUCCESSFULLY',data:results})
+    //         }
+    //     )
+    // })
    
 })
 

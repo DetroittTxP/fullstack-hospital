@@ -5,13 +5,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const cors = require('cors');
 const salt = process.env.salt
-const secret  = process.env.secret
+const secret  = "HEHE_SECRET_KEY_HEHE"
 const swaggerUI = require('swagger-ui-express');
 const swaggerData = require('./swaggerDOCS.json')
 require('dotenv').config();
-
-
-
 
 const app = express();
 

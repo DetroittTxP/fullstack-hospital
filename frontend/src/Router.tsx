@@ -6,7 +6,7 @@ import QueueRecceipt from './components/Queue/QueueReceipt'
 import Queue from './components/Queue/Queue'
 import Login from './components/ีUserManage/Login'
 import Register from './components/ีUserManage/Register'
-
+import Callqueue from './components/Queue/Callqueue'
 export const Router:React.FC = () =>{
 
 
@@ -19,7 +19,7 @@ export const Router:React.FC = () =>{
           <Route path='/queue' element={<Queue />} />
           <Route path='/patientData' element={<PatientData />} />
           <Route path='/receipt' element={<QueueRecceipt/>}/>
-
+          <Route path='/callqueue' element={<Callqueue/>}/>
       </Routes>
     )
 }

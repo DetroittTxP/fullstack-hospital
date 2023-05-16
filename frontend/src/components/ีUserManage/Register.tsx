@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap'
-import {Member} from '../type'
- 
+import {Member} from '../../type'
+import axios from 'axios';
 const Register:React.FC = () => {
 
     const [registerdata,Setregsiterdata] = useState<Member>({
@@ -20,8 +20,13 @@ const Register:React.FC = () => {
         })
     }
 
-    const onSubmitData=(e:React.ChangeEvent<HTMLFormElement>)=>{
+    const onSubmitData= async (e:React.ChangeEvent<HTMLFormElement>)=>{
          e.preventDefault();
+         await axios.post('http://localhost:5555/register',registerdata)
+         .then((res) => {
+            alert('สมัครสมาชิกสำเร็จเเล้ว')
+         })
+         .catch((err) => alert(err))
     }
 
     return (

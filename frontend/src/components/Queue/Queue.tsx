@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { QueuePatient } from '../type';
+import { QueuePatient } from '../../type';
 import axios from 'axios';
 
 const Queue: React.FC = () => {

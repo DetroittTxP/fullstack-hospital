@@ -2,10 +2,10 @@ import React from 'react'
 
 import {Routes,Route} from 'react-router-dom'
 import PatientData from './components/PatientData'
-import QueueRecceipt from './components/QueueReceipt'
-import Queue from './components/Queue'
-import Login from './components/Login'
-import Register from './components/Register'
+import QueueRecceipt from './components/Queue/QueueReceipt'
+import Queue from './components/Queue/Queue'
+import Login from './components/ีUserManage/Login'
+import Register from './components/ีUserManage/Register'
 
 export const Router:React.FC = () =>{
 

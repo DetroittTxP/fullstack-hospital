@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap'
 import axios  from 'axios';
-import {Logindata} from '../type'
+import {Logindata} from '../../type'
 import {  useNavigate }  from 'react-router-dom'
 
 const Login:React.FC= () => {

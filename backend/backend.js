@@ -51,6 +51,7 @@ app.post('/InsertPatientData',(req,res) => {
 app.post('/register',(req,res) => {
     const { username,password,email,tel } = req.body;
     console.log(username,password,email,tel);
+    res.send({status:'สมัครสมาชิกสำเร็จ'})
     // bcrypt.hash(password,salt,(err,hash) => {
     //     db.query(
     //         'INSERT INTO member (username,password,email,tel) VALUES (?,?,?,?)',
@@ -65,6 +66,7 @@ app.post('/register',(req,res) => {
     // })
    
 })
+
 
 const CheckEmail= (username) =>{
     const EmailRex = /\S+@\S+\.\S+/
@@ -166,6 +168,23 @@ app.get('/getqueuedata',(req,res) => {
             res.json(results)
         }
     )
+})
+
+app.get('/getuserinfo',(req,res) => {
+
+    db.query(
+        'SELECT * FROM member WHERE username = ?',
+        [req.query.username],
+        (err,results,fields)=>{
+            if(err)console.log(err);
+            res.status(results)
+        }
+    )
+})
+
+app.put('/updateuserinfo/:userdata',(req,res) => {
+      const { userdata } = req.params;
+
 })
 
 app.listen(process.env.PORT,() => {

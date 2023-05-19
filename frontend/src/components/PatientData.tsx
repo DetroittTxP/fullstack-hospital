@@ -5,8 +5,8 @@ import axios from 'axios';
 import { Table,Button } from 'react-bootstrap';
 import { QueuePatient } from '../type';
 import { useNavigate } from 'react-router-dom';
-
-const PatientData:React.FC = ()=>{
+import { ReceiptFromComponent } from '../type';
+const PatientData:React.FC<ReceiptFromComponent> = ({Getreceipt})=>{
 
     const LoggedInUsername = localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')
 
@@ -37,6 +37,13 @@ const PatientData:React.FC = ()=>{
         SetPatientData(Deleted)
     }
 
+    const SelectedQueue = (id:number)=>{
+    
+        const Selected = PatientData.filter( e => e.id === id)  
+        Getreceipt(Selected[0])
+         
+    }
+
     return(
        <div className='table-patient'>
            {<Table className='table' style={{width:1450,backgroundColor:'white',borderRadius:5}}>
@@ -63,7 +70,10 @@ const PatientData:React.FC = ()=>{
                                 <td>{value.address}</td>
                                 <td>{value.id_card}</td>
                                 <td>{value.date}</td>
-                                <td><Button onClick={()=>navigate('/receipt')}>ดูข้อมูลการจอง</Button></td>
+                                <td><Button onClick={()=>{
+                                    navigate('/receipt')
+                                    SelectedQueue(value.id)
+                                }}>ดูข้อมูลการจอง</Button></td>
                                 <td><Button className='btn btn-danger' onClick={()=>onDelete(value.id)}>กดเมื่อสำเร็จเเล้ว</Button></td>
                             </tr>
                         )

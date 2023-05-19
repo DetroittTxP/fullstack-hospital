@@ -27,7 +27,7 @@ export interface QueuePatient{
     creator:string | undefined
 }
 
-export interface CallqueueProps{
+export interface ReceiptQueueProps{
     queuedata:{
         id:number
         name:string,
@@ -37,7 +37,11 @@ export interface CallqueueProps{
         address:string,
         id_card:string,
         creator:string | undefined
-    }[],
+    }
+}
+
+export interface ReceiptFromComponent{
+    Getreceipt:(data:QueuePatient)=>void
 }
 
 export interface Logindata{

@@ -177,7 +177,7 @@ app.get('/getuserinfo',(req,res) => {
         [req.query.username],
         (err,results,fields)=>{
             if(err)console.log(err);
-            res.status(results)
+            res.send(results)
         }
     )
 })

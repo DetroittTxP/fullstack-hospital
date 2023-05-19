@@ -52,18 +52,18 @@ app.post('/register',(req,res) => {
     const { username,password,email,tel } = req.body;
     console.log(username,password,email,tel);
     res.send({status:'สมัครสมาชิกสำเร็จ'})
-    // bcrypt.hash(password,salt,(err,hash) => {
-    //     db.query(
-    //         'INSERT INTO member (username,password,email,tel) VALUES (?,?,?,?)',
-    //         [username,hash,email,tel],
-    //         (err,results,fields) => {
-    //             if(err){
-    //                 console.log(err);
-    //             }
-    //             res.send({status:'INSERT MEMBER DATA SUCCESSFULLY',data:results})
-    //         }
-    //     )
-    // })
+    bcrypt.hash(password,salt,(err,hash) => {
+        db.query(
+            'INSERT INTO member (username,password,email,tel) VALUES (?,?,?,?)',
+            [username,hash,email,tel],
+            (err,results,fields) => {
+                if(err){
+                    console.log(err);
+                }
+                res.send({status:'INSERT MEMBER DATA SUCCESSFULLY',data:results})
+            }
+        )
+    })
    
 })
 

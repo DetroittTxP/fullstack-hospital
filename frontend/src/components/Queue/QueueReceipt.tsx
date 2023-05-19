@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {
     MDBCard,
     MDBCardBody,
@@ -11,6 +11,8 @@ import { ReceiptQueueProps } from '../../type';
 
 const QueueRecceipt:React.FC<ReceiptQueueProps> = ({queuedata}) =>{  
 
+     
+
     return(
         <MDBContainer className="py-5">
       <MDBCard>
@@ -21,11 +23,9 @@ const QueueRecceipt:React.FC<ReceiptQueueProps> = ({queuedata}) =>{
             </p>
             <MDBRow>
               <MDBTypography listUnStyled>
-                <li className="text-black">John Doe</li>
-                <li className="text-muted mt-1">
-                  <span className="text-black">Invoice</span> #12345
-                </li>
-                <li className="text-black mt-1">April 17 2021</li>
+                <li className="text-black">ชื่อ-สกุล: <span style={{marginLeft:10}}>{queuedata.name}</span></li>
+               
+                <li className="text-black mt-1">เข้าตรวจวันที่: <span style={{marginLeft:10}}>{queuedata.date}</span></li>
               </MDBTypography>
               <hr />
               <MDBCol xl="10">

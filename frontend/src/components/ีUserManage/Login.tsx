@@ -26,8 +26,6 @@ const Login:React.FC= () => {
         await axios.post('http://localhost:5555/login',{users}) // gettoken
         .then(res => {
             Verify(res.data.token)  
-            
-            
         })
         .catch(err=>{
             alert(err)
@@ -44,7 +42,6 @@ const Login:React.FC= () => {
                 alert('login failed')
             }
             else{
-                
                 localStorage.setItem('username',JSON.stringify(res.data.token.username))
                 navigate('/main')
             }

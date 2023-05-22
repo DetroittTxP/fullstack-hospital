@@ -93,3 +93,14 @@
 .table{
   margin-top: 50px;
 }
+
+.callqueue-patient{
+  background-color: #147a94;
+  
+}
+
+.callqueue-patient Button{
+  background-color: white;
+  color: black;
+  margin-top: 50px;
+}

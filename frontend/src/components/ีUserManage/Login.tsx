@@ -3,6 +3,7 @@ import {Form,Button} from 'react-bootstrap'
 import axios  from 'axios';
 import {Logindata} from '../../type'
 import {  useNavigate }  from 'react-router-dom'
+import ken from '../../img/Pap.jpg'
 
 const Login:React.FC= () => {
 
@@ -51,6 +52,10 @@ const Login:React.FC= () => {
     return (
         <div >
             <div className='form'>
+                <div>
+                    <img src={ken} width={200} height={250}/>
+                </div>
+
                 <div className='form-header'>
                      <h2>Please Login</h2>  
                 </div>

@@ -6,6 +6,7 @@ import { Table,Button } from 'react-bootstrap';
 import { QueuePatient } from '../type';
 import { useNavigate } from 'react-router-dom';
 import { ReceiptFromComponent } from '../type';
+
 const PatientData:React.FC<ReceiptFromComponent> = ({Getreceipt})=>{
 
     const LoggedInUsername = localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')

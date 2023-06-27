@@ -46,7 +46,7 @@ const PatientData:React.FC<ReceiptFromComponent> = ({Getreceipt})=>{
 
     return(
        <div className='table-patient'>
-           {<Table className='table' style={{width:1450,backgroundColor:'white',borderRadius:5}}>
+           { PatientData.length !== 0 && <Table className='table' style={{width:1450,backgroundColor:'white',borderRadius:5}}>
                 <thead>
                       <th>ชื่อผู้ใช้</th>
                       <th>ชื่อผู้ป่วย</th>

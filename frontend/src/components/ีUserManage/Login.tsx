@@ -69,8 +69,8 @@ const Login:React.FC= () => {
                     <Button type='submit' id='button'>Login</Button>
                     <br/>
                     <div>
-                    <a href="/register"  style={{color:'white',marginRight:1000,}}>register</a>
-                    <a href="/adminlogin"  style={{color:'white'}}>admin</a>
+                    {/* <a href="/register"  style={{color:'white',marginRight:1000,}}>register</a>
+                    <a href="/adminlogin"  style={{color:'white'}}>admin</a> */}
                     </div>
         
                 </Form>

@@ -29,6 +29,8 @@ const Callqueue: FC = () => {
     },[])
 
     const onCallnextQueue=(id:number)=>{
+
+
         if(patientqueue.length === 1){
             alert('No more queue');
             return;
@@ -43,10 +45,9 @@ const Callqueue: FC = () => {
 
     return (
         <div className='callqueue-patient'>
-            <Button onClick={() => { Setpatientqueue((prev) => prev.slice(1)) }}>Call next queue</Button>
             <div className='callqueue-card' >
 
-                <Card >
+                <Card style={{position:'relative',top:50}}>
                     <Card.Body>
                         <Card.Title>คิวที่ {runqueue}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">วันที่ {patientqueue[0].date}</Card.Subtitle>

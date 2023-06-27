@@ -15,8 +15,8 @@ const QueueRecceipt: React.FC<ReceiptQueueProps> = ({ queuedata }) => {
 
   return (
     <>
-      <br />zz
-      <MDBContainer className="py-5" >
+      <br />
+      <MDBContainer className="py-5" style={{marginTop:50}}>
         <MDBCard>
           <MDBCardBody className="mx-4">
             <MDBContainer>

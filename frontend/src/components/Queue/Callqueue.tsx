@@ -6,6 +6,8 @@ import axios from 'axios';
 const Callqueue: FC = () => {
 
     const LoggedInUsername = localStorage.getItem('username')?.replace(/^"(.*)"$/, '$1')
+  
+    
     const [patientqueue, Setpatientqueue] = useState<QueuePatient[]>([{
         id: 0,
         name: '',

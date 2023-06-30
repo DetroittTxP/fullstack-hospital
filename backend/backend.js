@@ -1,13 +1,15 @@
 const express = require('express');
 const mysql = require('mysql2');
 const bodyparser = require('body-parser')
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const cors = require('cors');
 const salt = process.env.salt
 const secret  = "HEHE_SECRET_KEY_HEHE"
 const swaggerUI = require('swagger-ui-express');
 const swaggerData = require('./swaggerDOCS.json')
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 require('dotenv').config();
 
 const app = express();
@@ -50,20 +52,23 @@ app.post('/InsertPatientData',(req,res) => {
 
 app.post('/register',(req,res) => {
     const { username,password,email,tel } = req.body;
-    console.log(username,password,email,tel);
-    res.send({status:'สมัครสมาชิกสำเร็จ'})
-    bcrypt.hash(password,salt,(err,hash) => {
-        db.query(
+    console.log(username,password,email,tel)
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+           db.query(
             'INSERT INTO member (username,password,email,tel) VALUES (?,?,?,?)',
             [username,hash,email,tel],
             (err,results,fields) => {
                 if(err){
                     console.log(err);
                 }
+                console.log(hash);
                 res.send({status:'INSERT MEMBER DATA SUCCESSFULLY',data:results})
             }
         )
-    })
+    });
+  
+     
+    
    
 })
 

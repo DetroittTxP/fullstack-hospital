@@ -2,9 +2,9 @@ FROM node:17-alpine
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 
-RUN npm install
+RUN npm ci --silent
 
 COPY . .
 
@@ -12,4 +12,4 @@ RUN npm run build
 
 EXPOSE 4444
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "serve"]

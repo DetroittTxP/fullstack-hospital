@@ -19,6 +19,7 @@ const Callqueue: FC = () => {
         creator: LoggedInUsername || undefined
     }]);
     const [runqueue,Setrunqueue] = useState<number>(1);
+    const [showlast,Setshowlast] = useState<boolean>(true);
 
 
     useEffect(() => {
@@ -28,15 +29,18 @@ const Callqueue: FC = () => {
         })
         .catch(err=> alert(err))          
 
+        Setshowlast(true);
     },[])
 
-    const onCallnextQueue=(id:number)=>{
+    const onCallnextQueue= async (id:number)=>{
 
 
         if(patientqueue.length === 1){
-            alert('No more queue');
+            Setshowlast(false);
             return;
         }
+
+        
         let newqueue = patientqueue.filter((e) => e.id !== id)
         Setpatientqueue(newqueue)
         Setrunqueue(runqueue+1);
@@ -49,7 +53,7 @@ const Callqueue: FC = () => {
         <div className='callqueue-patient'>
             <div className='callqueue-card' >
 
-                <Card style={{position:'relative',top:50}}>
+                {showlast && <Card style={{position:'relative',top:50}}>
                     <Card.Body>
                         <Card.Title>คิวที่ {runqueue}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">วันที่ {patientqueue[0].date}</Card.Subtitle>
@@ -63,7 +67,7 @@ const Callqueue: FC = () => {
                         <Button onClick={()=>onCallnextQueue(patientqueue[0].id)} style={{marginLeft:20}}>คิวถัดไป</Button>
                         
                     </Card.Body>
-                </Card>
+                </Card>}
 
             </div>
 

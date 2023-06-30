@@ -26,7 +26,7 @@ const Register: React.FC = () => {
     const onSubmitData = async (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         await axios.post('http://localhost:5555/register', registerdata)
-            .then((res) => {
+            .then((_) => {
                 Setsuccess(true)
             })
             .catch((err) => alert(err))

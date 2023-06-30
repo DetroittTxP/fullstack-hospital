@@ -61,6 +61,20 @@
   color:white;
 }
 
+.spin-container {
+  animation: spin 4s infinite linear; /* Adjust the animation duration and timing as per your preferences */
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 
 .login{

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import './App.css'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import {  Nav, Navbar,  } from 'react-bootstrap';
 import { Router } from './Router'
 
 function App() {

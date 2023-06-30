@@ -52,7 +52,7 @@ const Login:React.FC= () => {
     return (
         <div >
             <div className='form'>
-                <div>
+                <div className='spin-container'>
                     <img src={ken} width={200} height={250}/>
                 </div>
 
@@ -71,7 +71,7 @@ const Login:React.FC= () => {
                           <Form.Control required  type='password' onChange={OnInputUser}   style={{width:200}}/>
                     </Form.Group>
                     <br/>
-                    <Button type='submit' id='button'>Login</Button>
+                    <Button style={{position:'relative',right:30}} type='submit' id='button'>Login</Button>
                     <br/>
                     <div>
                     {/* <a href="/register"  style={{color:'white',marginRight:1000,}}>register</a>
